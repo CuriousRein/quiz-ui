@@ -1,0 +1,34 @@
+.question-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.question-card {
+  width: 100%;
+  padding: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+.choices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 24px;
+  margin: 5px;
+}
+.btn-actions{
+    display: flex;
+}
+.btn-actions button{
+    flex: 1;
+}
+.green-snackbar {
+  background: rgb(65, 252, 134);
+  color: white;
+}
+.red-snackbar {
+  background: #F44336;
+  color: white;
+}

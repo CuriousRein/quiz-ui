@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Questionaire form</h1>
+<div mat-dialog-content>
+  <!-- <mat-form-field appearance="fill">
+    <mat-select required (selectionChange)="getTypeValue($event.value)">
+      <mat-option value="multiple">Multiple Choices</mat-option>
+      <mat-option value="trueorfalse">true of false</mat-option>
+      <mat-option value="fillintheblank">fill in the blank</mat-option>
+    </mat-select>
+    <mat-label>Question Type</mat-label>
+  </mat-form-field> -->
+  <!-- <mat-form-field appearance="fill" >
+        <mat-label>Multiple Choices</mat-label>
+        <input matInput placeholder="Trivia">
+      </mat-form-field> -->
+  <form #quizform="ngForm" [formGroup]="quiz" (ngSubmit)="submitQuestionaire()">
+    <mat-form-field appearance="fill">
+      <mat-label>Question</mat-label>
+        <textarea matNativeControl placeholder="Question" formControlName="question" cdkTextareaAutosize></textarea>
+      </mat-form-field>
+      <div >
+        <mat-form-field appearance="outline">
+          <mat-label>Choice 1</mat-label>
+          <input matInput placeholder="Choice 1" formControlName="choiceOne">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Choice 2</mat-label>
+          <input matInput placeholder="Choice 2" formControlName="choiceTwo">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Choice 3</mat-label>
+          <input matInput placeholder="Choice 3" formControlName="choiceThree">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Choice 4</mat-label>
+          <input matInput placeholder="Choice 4" formControlName="choiceFour" id="choiceFour" #choiceFour>
+        </mat-form-field>
+      </div>
+      <mat-label>Select Correct Answer:</mat-label>
+      <mat-radio-group #correctAnswer aria-label="Correct Answer" formControlName="correctAnswer">
+        <mat-radio-button value="0">Option 1</mat-radio-button>
+        <mat-radio-button value="1">Option 2</mat-radio-button>
+        <mat-radio-button value="2">Option 3</mat-radio-button>
+        <mat-radio-button value="3">Option 4</mat-radio-button>
+      </mat-radio-group>
+    
+      <div mat-dialog-actions>
+        <button mat-button type="submit" [disabled]="!quiz.valid">SAVE</button>
+        <button mat-button mat-dialog-close cdkFocusInitial>CANCEL</button>
+      </div>
+  </form>
+  

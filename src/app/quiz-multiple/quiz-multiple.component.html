@@ -1,0 +1,25 @@
+
+<div class="question-container">
+    <mat-card class="question-card">
+            <mat-card-header *ngIf="questionList.length==0">
+                <mat-card-title class="question">No Questionaires Yet!</mat-card-title>
+            </mat-card-header>
+            <mat-card-header *ngIf="questionList.length>0">
+                
+                <mat-card-title class="question"><h3>{{questionList[current].module}}</h3>Question {{current+1}}/{{questionList.length}}<hr>
+                    <div style="white-space: pre-line;">{{questionList[current].questionText}}</div></mat-card-title>
+            </mat-card-header>
+    
+            <mat-card-content *ngIf="questionList.length>0">
+                <mat-radio-group class="choices" [formControl]="sellectedAnswer" (change)="addCounter()">
+                    <div *ngFor="let choice of questionList[current].choices">
+                        <mat-radio-button  value="{{choice.isAnswer}}" *ngIf="choice.name!='-'">{{choice.name}}</mat-radio-button>
+                    </div>
+                  
+                </mat-radio-group>
+            </mat-card-content>
+            
+    </mat-card>
+    
+</div>
+

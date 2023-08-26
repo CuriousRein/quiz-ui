@@ -1,0 +1,25 @@
+<mat-card class="reviewer-container">
+    <table mat-table [dataSource]="reviewer">
+
+        <ng-container matColumnDef="questionText">
+          <th mat-header-cell *matHeaderCellDef> Question </th>
+          <td mat-cell *matCellDef="let questionnaire"> {{questionnaire.questionText}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="correctAnswer">
+          <th mat-header-cell *matHeaderCellDef> Correct Answer </th>
+          <td mat-cell *matCellDef="let questionnaire">
+            {{ getCorrectAnswer(questionnaire) }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="trivia">
+          <th mat-header-cell *matHeaderCellDef> Trivia </th>
+          <td mat-cell *matCellDef="let questionnaire"> {{questionnaire.trivia}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="['questionText', 'correctAnswer','trivia']"></tr>
+        <tr mat-row *matRowDef="let questionnaire; columns: ['questionText', 'correctAnswer','trivia'];"></tr>
+      </table>
+</mat-card>
+    

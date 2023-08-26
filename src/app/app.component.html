@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="startQuiz()">
+      <span>Start Quiz</span>
+    </button>
+    <span class="menu-container"></span>
+
+      <span>Add Quiz</span>
+      <button mat-icon-button (click)="openDialog()">
+      
+      <mat-icon style="z-index: 2;">add_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+    <mat-grid-list cols="2" >
+      <mat-grid-tile>
+        <app-quiz-multiple></app-quiz-multiple>
+      </mat-grid-tile>
+      <mat-grid-tile >
+        <mat-card class="question-card">
+          <mat-card-title>Score</mat-card-title>
+          <mat-divider></mat-divider>
+          <mat-card-content>
+            <ng-container *ngIf="scores.length; else noScores">
+                <mat-list-item *ngFor="let score of scores">
+                  <h3 mat-line>Score: {{ score.score }} - Date: {{ score.date | date:'medium' }}</h3>
+                </mat-list-item>
+                <button mat-fab color="primary" (click)="resetScores()" aria-label="Example icon button with a delete icon">
+                  <mat-icon>delete</mat-icon>
+                </button>
+            </ng-container>
+            <ng-template #noScores>
+              <p>No Score Yet.</p>
+            </ng-template>
+
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      
+ 
+    </mat-grid-list>
+    
+    
+  
